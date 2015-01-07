@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{charset: "UTF-8"}
+    %title id_dom 
+    %link{rel: "stylesheet", href: ""}
+    %script{src: ""}
+
+  %body
+    %form{ action: "/search", method: :post,  :"accept-charset" => "utf-8"}
+      %label
+        %input{type: :text, name: :search, value: ""}
+        %input{type: :submit, value: :search}
+    = yield
