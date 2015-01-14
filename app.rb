@@ -18,8 +18,8 @@ get '/:q' do
 end
 
 post '/search' do
-  # puts params
-  redirect "/#{params[:search]}"
+  # puts ERB::Util.url_encode(params)
+  redirect "/#{ERB::Util.url_encode params[:search]}"
 end
 
 
