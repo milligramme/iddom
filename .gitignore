@@ -1,3 +1,6 @@
-tmp/
-iddomjs
+/tmp/
+/iddomjs
 Gemfile.lock
+
+.bundle
+/vendor/bundle
