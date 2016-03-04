@@ -1,5 +1,3 @@
-require "sinatra"
-
 DIRNAME = File.dirname(__FILE__)
 set :public_folder, "./iddomjs"
 
