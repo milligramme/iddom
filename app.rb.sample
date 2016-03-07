@@ -1,16 +1,17 @@
 DIRNAME = File.dirname(__FILE__)
-set :public_folder, "./iddomjs"
+set :public_folder, "./iddomjs_v2"
 
 get '/' do
+  @ver = 2
   @results = []
   haml :home
 end
 
 get '/:q' do
-  result = `rak -il #{params[:q]} "#{DIRNAME}/iddomjs"`.split("\n")
+  result = `rak -il #{params[:q]} "#{DIRNAME}/iddomjs_v2"`.split("\n")
+
   result.delete_if { |e| ! (/\.html$/ =~ e)  }
   result.delete_if { |e| e == "#{DIRNAME}/index.html" }
-  # puts result
   @results = result.map { |e| File.basename(e) }.sort
   haml :index
 end

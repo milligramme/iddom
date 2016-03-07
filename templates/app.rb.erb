@@ -1,0 +1,24 @@
+DIRNAME = File.dirname(__FILE__)
+set :public_folder, "./iddomjs_v<%= @ver %>"
+
+get '/' do
+  @ver = <%= @ver %>
+  @results = []
+  haml :home
+end
+
+get '/:q' do
+  result = `rak -il #{params[:q]} "#{DIRNAME}/iddomjs_v<%= @ver %>"`.split("\n")
+
+  result.delete_if { |e| ! (/\.html$/ =~ e)  }
+  result.delete_if { |e| e == "#{DIRNAME}/index.html" }
+  @results = result.map { |e| File.basename(e) }.sort
+  haml :index
+end
+
+post '/search' do
+  # puts ERB::Util.url_encode(params)
+  redirect "/#{ERB::Util.url_encode params[:search]}"
+end
+
+

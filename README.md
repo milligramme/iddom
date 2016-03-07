@@ -2,28 +2,34 @@
 
 local indesign dom viewer
 
-こちらの [オリジナル](http://indesign.cs5.xyz/dom_about.html) に
+オリジナルの
+[CS-CS5.5のオブジェクトモデル図（JavaScript）](http://indesign.cs5.xyz/dom_about.html)
+および
+[InDesignオブジェクトモデル図 CS5-CC2015 ベータ版](http://indesign.cs5.xyz/dom/about.html)
 
-変換処理
+に対して変換処理
 
 - 検索フォームつける
-- ファイルのエンコーディングをcp932からutf-8にする
-- ヘッダの`<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">` をutf-8にする
+- ファイルのエンコーディングをcp932からutf-8にする(v1)
+- ヘッダの`<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">` をutf-8にする(v1)
 - 内部リンクの `<base target="_blank">` を削除
 
 してローカル環境で使えるようにする
 
 
 ## ビルド
-1. ビルドスクリプトを実行
-    - オリジナルのhtml.zip ( [zip](http://indesign.cs5.xyz/extra/iddomjs_CS55.zip) ) をダウンロード
-    - [SpecialCharacters](http://indesign.cs5.xyz/iddomjs/SpecialCharacters.html) を別途ダウンロード
-2. 変換処理をして inddomjs フォルダに展開
 
+namespaceに CS-CS5版のv1とCS5-CC2015版のv2を設定
+
+wgetをインストール
+
+rake buildタスクを実行
 
 ~~~
 $ bundle install
-$ ruby build.rb
+$ rake v1:build
+or
+$ rake v2:build
 ~~~
 
 ## 起動

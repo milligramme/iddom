@@ -1,10 +1,9 @@
 source "https://rubygems.org"
 
 gem 'sinatra'
-gem 'haml'
+gem 'haml', require: "tilt/haml"
 
 gem 'rak'
-gem 'rubyzip'
 
 # pow
 # gem 'powder'
